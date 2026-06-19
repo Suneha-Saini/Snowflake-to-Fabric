@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "56c4489b0a000d0e816c",
+  "position": {
+    "x": 414.54545454545456,
+    "y": 0,
+    "z": 1000,
+    "height": 114.90909090909091,
+    "width": 205.09090909090909,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "advanceCardE03760C5AB684758B56AA29F9E6C257B",
+    "query": {
+      "queryState": {
+        "mainMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_CROP_WEATHER"
+                        }
+                      },
+                      "Property": "DAILY_MAX_TEMP_F"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FACT_CROP_WEATHER.DAILY_MAX_TEMP_F)",
+              "nativeQueryRef": "Sum of DAILY_MAX_TEMP_F"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "FACT_CROP_WEATHER"
+                      }
+                    },
+                    "Property": "DAILY_MAX_TEMP_F"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "0e9ff85cd77102e73018",
+  "position": {
+    "x": 109.09090909090909,
+    "y": 0,
+    "z": 0,
+    "height": 126.54545454545455,
+    "width": 232.72727272727272,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "advanceCardE03760C5AB684758B56AA29F9E6C257B",
+    "query": {
+      "queryState": {
+        "mainMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AGG_FARM_YEARLY"
+                        }
+                      },
+                      "Property": "AVG_TEMP_F"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(AGG_FARM_YEARLY.AVG_TEMP_F)",
+              "nativeQueryRef": "Sum of AVG_TEMP_F"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "AGG_FARM_YEARLY"
+                      }
+                    },
+                    "Property": "AVG_TEMP_F"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,73 @@
+table DIM_FARM
+	lineageTag: 30efcc27-5ad7-4133-8c90-8c2b3d87a90d
+	sourceLineageTag: [dbo].[DIM_FARM]
+
+	column FARM_KEY
+		dataType: double
+		lineageTag: 19f8229e-e32a-4284-b31d-70395f0fc4f4
+		sourceLineageTag: FARM_KEY
+		summarizeBy: none
+		sourceColumn: FARM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FARM_ID
+		dataType: string
+		lineageTag: b33ae9f1-99cf-469b-8fcf-f3329c22a699
+		sourceLineageTag: FARM_ID
+		summarizeBy: none
+		sourceColumn: FARM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FARM_NAME
+		dataType: string
+		lineageTag: cc8cdf10-babe-4d74-b29b-8543e373cf0c
+		sourceLineageTag: FARM_NAME
+		summarizeBy: none
+		sourceColumn: FARM_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATION_KEY
+		dataType: double
+		lineageTag: 7f4915ec-c259-41a2-9caa-9f0507b46a56
+		sourceLineageTag: STATION_KEY
+		summarizeBy: none
+		sourceColumn: STATION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REGION_KEY
+		dataType: double
+		lineageTag: fafb5486-61a3-42ec-a84d-42be6d2eabda
+		sourceLineageTag: REGION_KEY
+		summarizeBy: none
+		sourceColumn: REGION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ACREAGE
+		dataType: double
+		lineageTag: 635435b1-be1f-4ea5-8cb2-d6ccfda75acb
+		sourceLineageTag: ACREAGE
+		summarizeBy: none
+		sourceColumn: ACREAGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_FARM = entity
+		mode: directLake
+		source
+			entityName: DIM_FARM
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

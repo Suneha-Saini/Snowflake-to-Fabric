@@ -1,0 +1,36 @@
+relationship aef89b92-91a8-d65d-cbf4-906187e9aeb4
+	fromColumn: FACT_CROP_WEATHER.DATE_KEY
+	toColumn: DIM_DATE.DATE_KEY
+
+relationship 7124eff3-7375-fab4-fb81-b0debcf0307e
+	fromColumn: FACT_CROP_WEATHER.FARM_KEY
+	toColumn: DIM_FARM.FARM_KEY
+
+relationship 771758c2-5be8-b7aa-9d56-edf881f7067a
+	fromColumn: FACT_CROP_WEATHER.CROP_KEY
+	toColumn: DIM_CROP.CROP_KEY
+
+relationship 4bac39a3-34b0-e6df-c70d-6b2ff422cb4d
+	fromColumn: FACT_CROP_WEATHER.STATION_KEY
+	toColumn: DIM_STATION.STATION_KEY
+
+relationship 98b9985e-ac2b-bfe1-4df8-3bb89fce759f
+	fromColumn: FACT_CROP_WEATHER.REGION_KEY
+	toColumn: DIM_REGION.REGION_KEY
+
+relationship ae3b5d04-1433-b057-94b9-55733b4c6a46
+	fromColumn: AGG_FARM_YEARLY.CROP_KEY
+	toColumn: DIM_CROP.CROP_KEY
+
+relationship 75caf533-a027-981b-8e87-137cbf141229
+	fromColumn: AGG_FARM_YEARLY.REGION_KEY
+	toColumn: DIM_REGION.REGION_KEY
+
+relationship bf48f175-a40f-a4cf-c490-5cdb5f832c64
+	fromColumn: AGG_MONTHLY_PERFORMANCE.MONTH_DATE_KEY
+	toColumn: DIM_DATE.DATE_KEY
+
+relationship 5fd0d47b-97e1-383f-bfd2-0d7b6e32509d
+	fromColumn: REGIONAL_CROP_PERFORMANCE.REGION
+	toColumn: DIM_REGION.REGION_NAME
+

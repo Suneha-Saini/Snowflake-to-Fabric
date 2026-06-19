@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectLake - USWeatherHistory_Snowflake_Lakehouse"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit"]
+
+ref table FACT_CROP_WEATHER
+ref table DIM_FARM
+ref table DIM_STATION
+ref table DIM_REGION
+ref table DIM_CROP
+ref table DIM_DATE
+ref table AGG_FARM_YEARLY
+ref table MONTHLY_TRENDS
+ref table TEMPERATURE_ANALYSIS
+ref table AGG_MONTHLY_PERFORMANCE
+ref table STATION_COMPARISON
+ref table FARM_WEEKLY_DASHBOARD
+ref table REGIONAL_CROP_PERFORMANCE
+ref table WEATHER_CROP_IMPACT
+

@@ -1,0 +1,260 @@
+table FARM_WEEKLY_DASHBOARD
+	lineageTag: 764bfa52-2146-4c3f-9f5c-731679b426d7
+	sourceLineageTag: [dbo].[FARM_WEEKLY_DASHBOARD]
+
+	column RECORD_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bc6f177a-e176-4f51-a35d-774c1bc3b639
+		sourceLineageTag: RECORD_DATE
+		summarizeBy: none
+		sourceColumn: RECORD_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FARM_ID
+		dataType: string
+		lineageTag: 98e029fd-f4b7-4118-a4cf-04fda2df1f0d
+		sourceLineageTag: FARM_ID
+		summarizeBy: none
+		sourceColumn: FARM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FARM_NAME
+		dataType: string
+		lineageTag: 612c408a-ad16-402a-8d6c-755736e09f19
+		sourceLineageTag: FARM_NAME
+		summarizeBy: none
+		sourceColumn: FARM_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATION_CODE
+		dataType: string
+		lineageTag: 9bfbb777-ca00-412a-843e-89652cda1e1b
+		sourceLineageTag: STATION_CODE
+		summarizeBy: none
+		sourceColumn: STATION_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CITY
+		dataType: string
+		lineageTag: 3235ff9f-eb3c-4c70-b5a5-7b5910bf65b7
+		sourceLineageTag: CITY
+		summarizeBy: none
+		sourceColumn: CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATE
+		dataType: string
+		lineageTag: d7b3b20a-60d5-46f9-8b0a-da25b92fc9c2
+		sourceLineageTag: STATE
+		summarizeBy: none
+		sourceColumn: STATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGION
+		dataType: string
+		lineageTag: 7b575e7a-5c68-47ee-bd72-bd080f51a465
+		sourceLineageTag: REGION
+		summarizeBy: none
+		sourceColumn: REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	column CROP_TYPE
+		dataType: string
+		lineageTag: 77965085-5d36-4174-88cf-17cbf03b9a62
+		sourceLineageTag: CROP_TYPE
+		summarizeBy: none
+		sourceColumn: CROP_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACREAGE
+		dataType: double
+		lineageTag: 047456ca-7aa7-440b-a487-72be23bf7204
+		sourceLineageTag: ACREAGE
+		summarizeBy: sum
+		sourceColumn: ACREAGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROWTH_STAGE
+		dataType: string
+		lineageTag: a16b6e39-a7b1-4e1b-b22b-e9c2605ac742
+		sourceLineageTag: GROWTH_STAGE
+		summarizeBy: none
+		sourceColumn: GROWTH_STAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEMP_CATEGORY
+		dataType: string
+		lineageTag: 63a1a0c7-e48c-447f-a9bb-c021b1323570
+		sourceLineageTag: TEMP_CATEGORY
+		summarizeBy: none
+		sourceColumn: TEMP_CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRECIP_CATEGORY
+		dataType: string
+		lineageTag: b08002d5-4d71-487c-b555-14a5336be836
+		sourceLineageTag: PRECIP_CATEGORY
+		summarizeBy: none
+		sourceColumn: PRECIP_CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEALTH_CATEGORY
+		dataType: string
+		lineageTag: d2b59d1c-900e-403c-b0e3-f7a5deee817f
+		sourceLineageTag: HEALTH_CATEGORY
+		summarizeBy: none
+		sourceColumn: HEALTH_CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CROP_HEALTH_SCORE
+		dataType: double
+		lineageTag: bd663bad-9b60-4e8d-aaed-d5f6070981c4
+		sourceLineageTag: CROP_HEALTH_SCORE
+		summarizeBy: sum
+		sourceColumn: CROP_HEALTH_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PROJECTED_YIELD_PER_ACRE
+		dataType: double
+		lineageTag: ab05dcba-19e7-4a82-acc7-00ecc41caa41
+		sourceLineageTag: PROJECTED_YIELD_PER_ACRE
+		summarizeBy: sum
+		sourceColumn: PROJECTED_YIELD_PER_ACRE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_PROJECTED_YIELD
+		dataType: double
+		lineageTag: 39b548dc-5eb4-4834-bc57-d773a780eaa5
+		sourceLineageTag: TOTAL_PROJECTED_YIELD
+		summarizeBy: sum
+		sourceColumn: TOTAL_PROJECTED_YIELD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IRRIGATION_GALLONS
+		dataType: double
+		lineageTag: 27f78c2d-073d-44d2-a2e9-919cc3ae0351
+		sourceLineageTag: IRRIGATION_GALLONS
+		summarizeBy: sum
+		sourceColumn: IRRIGATION_GALLONS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SOIL_MOISTURE_PCT
+		dataType: double
+		lineageTag: 9950e415-fc6a-4020-9efb-131f6d1dbede
+		sourceLineageTag: SOIL_MOISTURE_PCT
+		summarizeBy: sum
+		sourceColumn: SOIL_MOISTURE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PEST_RISK
+		dataType: string
+		lineageTag: 44438b1e-4d38-4857-bbce-19a1e6da199f
+		sourceLineageTag: PEST_RISK
+		summarizeBy: none
+		sourceColumn: PEST_RISK
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_GROWING_SEASON
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c3ad555b-b28a-40cf-85bd-ce44122f7078
+		sourceLineageTag: IS_GROWING_SEASON
+		summarizeBy: none
+		sourceColumn: IS_GROWING_SEASON
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH_NUM
+		dataType: double
+		lineageTag: a8be68de-8ea7-4d32-8d8b-0940289907de
+		sourceLineageTag: MONTH_NUM
+		summarizeBy: sum
+		sourceColumn: MONTH_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QUARTER_NUM
+		dataType: double
+		lineageTag: 01b108a8-6679-44aa-9b64-106dd859a8b1
+		sourceLineageTag: QUARTER_NUM
+		summarizeBy: sum
+		sourceColumn: QUARTER_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ESTIMATED_REVENUE_USD
+		dataType: double
+		lineageTag: 26bb487b-116e-4c2d-9e7a-4a6283a1c93a
+		sourceLineageTag: ESTIMATED_REVENUE_USD
+		summarizeBy: sum
+		sourceColumn: ESTIMATED_REVENUE_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IRRIGATION_COST_USD
+		dataType: double
+		lineageTag: 5ded40ba-b9e5-4043-8d18-4a7672349345
+		sourceLineageTag: IRRIGATION_COST_USD
+		summarizeBy: sum
+		sourceColumn: IRRIGATION_COST_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WEATHER_RISK_SCORE
+		dataType: double
+		lineageTag: 21812701-33ba-4b36-bd85-8b931087d89f
+		sourceLineageTag: WEATHER_RISK_SCORE
+		summarizeBy: sum
+		sourceColumn: WEATHER_RISK_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FARM_WEEKLY_DASHBOARD = entity
+		mode: directLake
+		source
+			entityName: FARM_WEEKLY_DASHBOARD
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "ca7f5d7640220560147a",
+  "position": {
+    "x": 802,
+    "y": 230,
+    "z": 6000,
+    "height": 260,
+    "width": 395,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AGG_FARM_YEARLY"
+                    }
+                  },
+                  "Property": "Good Health Farms"
+                }
+              },
+              "queryRef": "AGG_FARM_YEARLY.Good Health Farms",
+              "nativeQueryRef": "Good Health Farms"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AGG_FARM_YEARLY"
+                    }
+                  },
+                  "Property": "Moderate Health Farms"
+                }
+              },
+              "queryRef": "AGG_FARM_YEARLY.Moderate Health Farms",
+              "nativeQueryRef": "Moderate Health Farms"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AGG_FARM_YEARLY"
+                    }
+                  },
+                  "Property": "Poor Health Farms"
+                }
+              },
+              "queryRef": "AGG_FARM_YEARLY.Poor Health Farms",
+              "nativeQueryRef": "Poor Health Farms"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AGG_FARM_YEARLY"
+                  }
+                },
+                "Property": "Good Health Farms"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1921fba47417a2a02625",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AGG_FARM_YEARLY"
+              }
+            },
+            "Property": "Good Health Farms"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9ee1244165069ad8674a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AGG_FARM_YEARLY"
+              }
+            },
+            "Property": "Moderate Health Farms"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7a7f7614c0a00047266c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AGG_FARM_YEARLY"
+              }
+            },
+            "Property": "Poor Health Farms"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "830e25ac46ddbc49094d",
+  "position": {
+    "x": 513.4545454545455,
+    "y": 196.36363636363637,
+    "z": 5000,
+    "height": 151.27272727272728,
+    "width": 216.72727272727272,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "advanceCardE03760C5AB684758B56AA29F9E6C257B",
+    "query": {
+      "queryState": {
+        "mainMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AGG_FARM_YEARLY"
+                    }
+                  },
+                  "Property": "Avg Crop Health Score"
+                }
+              },
+              "queryRef": "AGG_FARM_YEARLY.Avg Crop Health Score",
+              "nativeQueryRef": "Avg Crop Health Score"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AGG_FARM_YEARLY"
+                  }
+                },
+                "Property": "Avg Crop Health Score"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e0ecc320516c159ed20d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AGG_FARM_YEARLY"
+              }
+            },
+            "Property": "Avg Crop Health Score"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

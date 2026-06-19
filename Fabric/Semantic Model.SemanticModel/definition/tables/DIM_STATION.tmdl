@@ -1,0 +1,49 @@
+table DIM_STATION
+	lineageTag: a8f49627-7c6b-4389-bacd-c0ca9086fd6c
+	sourceLineageTag: [dbo].[DIM_STATION]
+
+	column STATION_KEY
+		dataType: double
+		lineageTag: 5869a0b1-e0eb-43df-87ba-d487e697aa8e
+		sourceLineageTag: STATION_KEY
+		summarizeBy: none
+		sourceColumn: STATION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column STATION_CODE
+		dataType: string
+		lineageTag: bd3fcd79-0cb6-4dfe-a197-37a2af8bffa1
+		sourceLineageTag: STATION_CODE
+		summarizeBy: none
+		sourceColumn: STATION_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CITY
+		dataType: string
+		lineageTag: c761997a-f554-4cfd-bf72-5b6be131e812
+		sourceLineageTag: CITY
+		summarizeBy: none
+		sourceColumn: CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATE
+		dataType: string
+		lineageTag: 0898be0b-1939-450e-a7f0-225ed8ea7caf
+		sourceLineageTag: STATE
+		summarizeBy: none
+		sourceColumn: STATE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_STATION = entity
+		mode: directLake
+		source
+			entityName: DIM_STATION
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

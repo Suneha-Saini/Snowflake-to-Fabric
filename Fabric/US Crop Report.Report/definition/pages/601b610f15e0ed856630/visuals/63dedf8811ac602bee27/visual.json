@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "63dedf8811ac602bee27",
+  "position": {
+    "x": 10.181818181818182,
+    "y": 0,
+    "z": 0,
+    "height": 155.63636363636363,
+    "width": 173.09090909090909,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_DATE"
+                    }
+                  },
+                  "Property": "YEAR"
+                }
+              },
+              "queryRef": "DIM_DATE.YEAR",
+              "nativeQueryRef": "YEAR",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Between'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9fdd2d50c00b8179c0c6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_DATE"
+              }
+            },
+            "Property": "YEAR"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

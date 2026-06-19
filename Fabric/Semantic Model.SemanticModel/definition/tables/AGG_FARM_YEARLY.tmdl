@@ -1,0 +1,1334 @@
+table AGG_FARM_YEARLY
+	lineageTag: 253c29ec-7229-4120-b1b5-391f8633f63a
+	sourceLineageTag: [dbo].[AGG_FARM_YEARLY]
+
+	measure 'Total Revenue' =
+			
+			SUMX(
+			    FACT_CROP_WEATHER,
+			    FACT_CROP_WEATHER[ESTIMATED_DAILY_REVENUE_USD]
+			)
+		lineageTag: 7cd19c91-ec21-40ea-a17e-785c218df5e9
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Irrigation Cost' = ```
+			
+			SUMX(
+			    FACT_CROP_WEATHER,
+			    FACT_CROP_WEATHER[IRRIGATION_COST_USD]
+			)
+			
+			```
+		lineageTag: fec8f0fd-b73b-452d-890f-e74cb6dc6b1b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Net Revenue' = ```
+			
+			[Total Revenue] - [Total Irrigation Cost]
+			
+			```
+		lineageTag: 1b118e31-bf83-460e-a2d1-8f67d5110839
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Crop Health Score' = ```
+			
+			AVERAGE(FACT_CROP_WEATHER[CROP_HEALTH_SCORE])
+			
+			```
+		lineageTag: bcdbf0a2-187d-4f94-8441-05f6021695fb
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Irrigation Gallons' = ```
+			
+			SUMX(
+			    FACT_CROP_WEATHER,
+			    FACT_CROP_WEATHER[IRRIGATION_GALLONS]
+			)
+			
+			```
+		lineageTag: 42be0967-1c1f-4a4a-9585-dbf442c75f29
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue per Acre' = ```
+			
+			DIVIDE(
+			    [Total Revenue],
+			    SUMX(DIM_FARM, DIM_FARM[ACREAGE]),
+			    0
+			)
+			
+			```
+		lineageTag: fb3e3c3d-cbdb-4219-a211-04be4dc40b86
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Projected Yield per Acre' = ```
+			
+			AVERAGE(FACT_CROP_WEATHER[PROJECTED_YIELD_PER_ACRE])
+			
+			```
+		lineageTag: 3d16416d-3a99-4b61-a91c-6c2587a7fe0f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Projected Yield' = ```
+			
+			SUMX(
+			    FACT_CROP_WEATHER,
+			    FACT_CROP_WEATHER[PROJECTED_YIELD_PER_ACRE]
+			)
+			
+			```
+		lineageTag: 0cfd866f-8f63-44f7-b35f-b2f13fb9a0d1
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Good Health Farms' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[CROP_HEALTH_SCORE] >= 75
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: aff5d03c-3c9d-420e-9498-5ea53e79c0bd
+
+		changedProperty = Name
+
+	measure 'Moderate Health Farms' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[CROP_HEALTH_SCORE] >= 50 && 
+			        FACT_CROP_WEATHER[CROP_HEALTH_SCORE] < 75
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 9ea0ff40-1e83-4816-adeb-30e2a7bd3deb
+
+		changedProperty = Name
+
+	measure 'Poor Health Farms' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[CROP_HEALTH_SCORE] < 50
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 276ed091-7417-41d8-97f4-4bc7b6a3707a
+
+		changedProperty = Name
+
+	measure 'daxAvg Temp' = ```
+			
+			AVERAGE(FACT_CROP_WEATHER[DAILY_AVG_TEMP_F])
+			
+			```
+		lineageTag: 552aeb86-1fbe-47c1-93fb-fbc53ab116a4
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Precipitation' = ```
+			
+			SUMX(
+			    FACT_CROP_WEATHER,
+			    FACT_CROP_WEATHER[DAILY_PRECIPITATION_IN]
+			)
+			
+			```
+		lineageTag: 121dfa04-cb15-48d6-9d8b-e8e42c4de1de
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Soil Moisture' = ```
+			
+			AVERAGE(FACT_CROP_WEATHER[SOIL_MOISTURE_PCT])
+			
+			```
+		lineageTag: bb6d4210-1967-4644-832a-5bb0b756c11b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'High Pest Days' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[PEST_RISK] = "High"
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 15e4723b-6908-4202-b849-b2e88dc266c0
+
+		changedProperty = Name
+
+	measure 'Moderate Pest Days' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[PEST_RISK] = "Moderate"
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 29a4ce12-231f-4bbe-8e15-64f646d90128
+
+		changedProperty = Name
+
+	measure 'Avg Weather Risk Score' = ```
+			
+			AVERAGE(FACT_CROP_WEATHER[WEATHER_RISK_SCORE])
+			
+			```
+		lineageTag: 0be5582e-0f28-49c5-a2ed-4adf8d778e8c
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Growing Season Days' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[IS_GROWING_SEASON] = TRUE()
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: a6aef3ee-237f-4216-808f-335f772c3b6d
+
+		changedProperty = Name
+
+	measure 'Avg Health During Growing Season' = ```
+			
+			AVERAGEX(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[IS_GROWING_SEASON] = TRUE()
+			    ),
+			    FACT_CROP_WEATHER[CROP_HEALTH_SCORE]
+			)
+			
+			```
+		lineageTag: aae80074-9fce-43ea-ba96-b0e7c91d267a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Extreme Heat Days' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[DAILY_MAX_TEMP_F] > 95
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: fba1a1de-2c46-40ae-a433-708ab9e77593
+
+		changedProperty = Name
+
+	measure 'Frost Days' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[DAILY_MIN_TEMP_F] < 32
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 193503fd-de6d-4268-91da-290c76810db8
+
+		changedProperty = Name
+
+	measure 'Best Performing Crop (by Yield)' = ```
+			
+			VAR TopCrop = 
+			    TOPN(
+			        1,
+			        VALUES(DIM_CROP[CROP_NAME]),
+			        [Avg Projected Yield per Acre]
+			    )
+			RETURN
+			    MAXX(TopCrop, DIM_CROP[CROP_NAME])
+			
+			```
+		lineageTag: af56aeb4-c2be-4126-92d7-3d66a0ff0dd3
+
+		changedProperty = Name
+
+	measure 'Highest Health Region' = ```
+			
+			VAR TopRegion = 
+			    TOPN(
+			        1,
+			        VALUES(DIM_REGION[REGION_NAME]),
+			        [Avg Crop Health Score]
+			    )
+			RETURN
+			    MAXX(TopRegion, DIM_REGION[REGION_NAME])
+			
+			```
+		lineageTag: d8094819-fe69-41c4-9e76-a37070d1ec49
+
+		changedProperty = Name
+
+	measure 'Annual Revenue' = ```
+			
+			SUMX(
+			    AGG_FARM_YEARLY,
+			    AGG_FARM_YEARLY[ANNUAL_REVENUE_USD]
+			)
+			
+			```
+		lineageTag: aa5d17e6-d74b-4b5a-94e3-a6b196b23163
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Annual Irrigation Cost' = ```
+			
+			SUMX(
+			    AGG_FARM_YEARLY,
+			    AGG_FARM_YEARLY[ANNUAL_IRRIGATION_COST_USD]
+			)
+			
+			```
+		lineageTag: a92ce21f-1965-4aa2-8fdb-390c5f1eb50a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Annual Net Revenue' = ```
+			
+			SUMX(
+			    AGG_FARM_YEARLY,
+			    AGG_FARM_YEARLY[NET_REVENUE_USD]
+			)
+			
+			```
+		lineageTag: 0b04b20f-6013-4702-a907-0e89d5f3c86c
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Monthly Revenue' = ```
+			
+			SUMX(
+			    AGG_MONTHLY_PERFORMANCE,
+			    AGG_MONTHLY_PERFORMANCE[TOTAL_ESTIMATED_REVENUE_USD]
+			)
+			
+			```
+		lineageTag: bb79baf4-98f2-4a36-9d9e-6526c740b589
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Monthly Irrigation Cost' = ```
+			
+			SUMX(
+			    AGG_MONTHLY_PERFORMANCE,
+			    AGG_MONTHLY_PERFORMANCE[TOTAL_IRRIGATION_COST_USD]
+			)
+			
+			```
+		lineageTag: e770718a-a540-43a4-9b48-67503923dd08
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Irrigation Cost per Acre' =
+			
+			DIVIDE(
+			    [Annual Irrigation Cost],
+			    SUMX(DIM_FARM, DIM_FARM[ACREAGE]),
+			    0
+			)
+		lineageTag: 966714cd-ad90-4a7e-978d-72ed4ff8419e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Irrigation Cost Ratio' = ```
+			
+			DIVIDE(
+			    [Annual Irrigation Cost],
+			    [Annual Revenue],
+			    0
+			)
+			
+			```
+		lineageTag: 3d9d3822-bdb3-40b9-8d7e-8f9deffd7bfb
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top 10 Farms Revenue' = ```
+			
+			MAXX(
+			    TOPN(10, DIM_FARM, [Total Revenue]),
+			    [Total Revenue]
+			)
+			
+			```
+		lineageTag: 036b51ea-5aaa-4076-8421-8561c198f06d
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Net Margin %' = ```
+			
+			AVERAGEX(
+			    AGG_FARM_YEARLY,
+			    DIVIDE(
+			        AGG_FARM_YEARLY[NET_REVENUE_USD],
+			        AGG_FARM_YEARLY[ANNUAL_REVENUE_USD],
+			        0
+			    )
+			)
+			
+			```
+		lineageTag: b9ba9257-16f5-4900-8707-cc7774212922
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'daxAvg Monthly Temp' = ```
+			
+			AVERAGE(MONTHLY_TRENDS[AVG_TEMP])
+			
+			```
+		lineageTag: ea0a85d0-e09a-493d-9da8-99fe6031a075
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Max Temp Recorded' = ```
+			
+			MAX(MONTHLY_TRENDS[MAX_TEMP])
+			
+			```
+		lineageTag: d92acdc5-3608-461c-9310-aaac1c272c53
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Min Temp Recorded' = ```
+			
+			MIN(MONTHLY_TRENDS[MIN_TEMP])
+			
+			```
+		lineageTag: 13af13cf-dbd4-449c-9852-d047ea336381
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Daily Temp Range' = ```
+			
+			AVERAGE(MONTHLY_TRENDS[AVG_DAILY_RANGE])
+			
+			```
+		lineageTag: 18f4715a-a670-4072-8b62-2fecc4786114
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Monthly Precipitation' = ```
+			
+			SUMX(
+			    MONTHLY_TRENDS,
+			    MONTHLY_TRENDS[TOTAL_PRECIPITATION]
+			)
+			
+			```
+		lineageTag: 389549d0-bd14-454d-a1e1-08d3885dc318
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Rainy Days per Month' = ```
+			
+			AVERAGE(MONTHLY_TRENDS[RAINY_DAYS])
+			
+			```
+		lineageTag: d050bf13-ace8-4dba-b631-d6b3a3387648
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Temp Deviation' = ```
+			
+			AVERAGE(MONTHLY_TRENDS[AVG_TEMP_DEVIATION])
+			
+			```
+		lineageTag: 353460c1-ce55-47e1-8ff5-d86811cb59e9
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Above Normal Days' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        MONTHLY_TRENDS,
+			        MONTHLY_TRENDS[AVG_TEMP_DEVIATION] > 0
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 74ea8a00-8d36-49b3-a829-d5fafe0b8aaa
+
+		changedProperty = Name
+
+	measure 'Total Extreme Heat Days' = ```
+			
+			SUMX(
+			    AGG_FARM_YEARLY,
+			    AGG_FARM_YEARLY[EXTREME_HEAT_DAYS]
+			)
+			
+			```
+		lineageTag: 4f3efa7b-af7e-4f70-9547-c4b9db08601b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Frost Days' = ```
+			
+			SUMX(
+			    AGG_FARM_YEARLY,
+			    AGG_FARM_YEARLY[FROST_DAYS]
+			)
+			
+			```
+		lineageTag: d5d5c20a-2daf-48f5-8e94-8172ef46a763
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cold Days Pct' = ```
+			
+			SUMX(
+			    FILTER(
+			        TEMPERATURE_ANALYSIS,
+			        TEMPERATURE_ANALYSIS[TEMP_CATEGORY] = "Cold"
+			    ),
+			    TEMPERATURE_ANALYSIS[PCT_OF_YEAR]
+			)
+			
+			```
+		lineageTag: c7d9f856-dfc5-4484-a3e7-68995ff1dc9a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cool Days Pct' = ```
+			
+			SUMX(
+			    FILTER(
+			        TEMPERATURE_ANALYSIS,
+			        TEMPERATURE_ANALYSIS[TEMP_CATEGORY] = "Cool"
+			    ),
+			    TEMPERATURE_ANALYSIS[PCT_OF_YEAR]
+			)
+			
+			```
+		lineageTag: e3b75e90-197f-4538-813a-05a86ca19581
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Warm Days Pct' = ```
+			
+			SUMX(
+			    FILTER(
+			        TEMPERATURE_ANALYSIS,
+			        TEMPERATURE_ANALYSIS[TEMP_CATEGORY] = "Warm"
+			    ),
+			    TEMPERATURE_ANALYSIS[PCT_OF_YEAR]
+			)
+			
+			```
+		lineageTag: b28857c5-1aa3-4960-816a-d52e96ed2a8a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Hot Days Pct' = ```
+			
+			SUMX(
+			    FILTER(
+			        TEMPERATURE_ANALYSIS,
+			        TEMPERATURE_ANALYSIS[TEMP_CATEGORY] = "Hot"
+			    ),
+			    TEMPERATURE_ANALYSIS[PCT_OF_YEAR]
+			)
+			
+			```
+		lineageTag: 40bfdcdd-823d-4bd1-b2cd-c7eea6b8d7ea
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Heavy Rain Days' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        WEATHER_CROP_IMPACT,
+			        WEATHER_CROP_IMPACT[HEAVY_RAIN_FLAG] = TRUE()
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: a0a42efe-b8cb-46b2-996b-aece2ed05e6a
+
+		changedProperty = Name
+
+	measure 'Extreme Heat Flag Count' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        WEATHER_CROP_IMPACT,
+			        WEATHER_CROP_IMPACT[EXTREME_HEAT_FLAG] = TRUE()
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 0346550a-31bb-4a0b-9cd8-d32081721bd3
+
+		changedProperty = Name
+
+	measure 'Avg Station Health' = ```
+			
+			AVERAGE(STATION_COMPARISON[AVG_CROP_HEALTH])
+			
+			```
+		lineageTag: 06435736-436d-4f3a-8bfd-9bf6ae21a8da
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Farms by Station' = ```
+			
+			SUMX(
+			    STATION_COMPARISON,
+			    STATION_COMPARISON[NUM_FARMS]
+			)
+			
+			```
+		lineageTag: afa0f040-201a-41ec-a5cd-e997d2c28b5a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Acreage by Station' = ```
+			
+			SUMX(
+			    STATION_COMPARISON,
+			    STATION_COMPARISON[TOTAL_FARM_ACREAGE]
+			)
+			
+			```
+		lineageTag: 0bf062d6-8f2b-425d-9941-5e01619d0387
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Daily Precip by Station' = ```
+			
+			AVERAGE(STATION_COMPARISON[AVG_DAILY_PRECIP])
+			
+			```
+		lineageTag: de66423c-1c64-495b-920e-b59d6e7042cd
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Station Avg Temp' = ```
+			
+			AVERAGE(STATION_COMPARISON[AVG_TEMP])
+			
+			```
+		lineageTag: 4c37d323-0563-4a57-828f-76adaca4cede
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Regional Total Acreage' = ```
+			
+			SUMX(
+			    REGIONAL_CROP_PERFORMANCE,
+			    REGIONAL_CROP_PERFORMANCE[TOTAL_ACREAGE]
+			)
+			
+			```
+		lineageTag: 793a9d2a-6c3a-41ef-b1e4-83885479c2bb
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Regional Avg Health' = ```
+			
+			AVERAGE(REGIONAL_CROP_PERFORMANCE[AVG_HEALTH_SCORE])
+			
+			```
+		lineageTag: 5c9ff1af-5ee6-4c6a-871f-d6dec22aefad
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Regional Total Yield' = ```
+			
+			SUMX(
+			    REGIONAL_CROP_PERFORMANCE,
+			    REGIONAL_CROP_PERFORMANCE[TOTAL_PROJECTED_YIELD]
+			)
+			
+			```
+		lineageTag: 57751a9e-387f-402d-9e21-717f5f644349
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Regional Avg Yield per Acre' = ```
+			
+			AVERAGE(REGIONAL_CROP_PERFORMANCE[AVG_YIELD_PER_ACRE])
+			
+			```
+		lineageTag: 393e655e-438e-42b2-bdaa-05cbc4b5c0dd
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Best Region by Yield' = ```
+			
+			VAR TopReg = 
+			    TOPN(
+			        1,
+			        VALUES(REGIONAL_CROP_PERFORMANCE[REGION]),
+			        [Regional Total Yield]
+			    )
+			RETURN
+			    MAXX(TopReg, REGIONAL_CROP_PERFORMANCE[REGION])
+			
+			```
+		lineageTag: aa560dc4-e421-4918-8d9e-c75c0e927e2a
+
+		changedProperty = Name
+
+	measure 'Region with Most Farms' = ```
+			
+			VAR TopFarmReg = 
+			    TOPN(
+			        1,
+			        VALUES(REGIONAL_CROP_PERFORMANCE[REGION]),
+			        [Total Farms by Station]
+			    )
+			RETURN
+			    MAXX(TopFarmReg, REGIONAL_CROP_PERFORMANCE[REGION])
+			
+			```
+		lineageTag: 472d5e3e-c227-43b1-99c3-f4e732c17257
+
+		changedProperty = Name
+
+	measure Highest_Health_Region = ```
+			
+			VAR TopHealthReg = 
+			    TOPN(
+			        1,
+			        VALUES(REGIONAL_CROP_PERFORMANCE[REGION]),
+			        [Regional Avg Health]
+			    )
+			RETURN
+			    MAXX(TopHealthReg, REGIONAL_CROP_PERFORMANCE[REGION])
+			
+			```
+		lineageTag: fa3acfdd-67b4-432a-8e8a-cc63a425f151
+
+		changedProperty = Name
+
+	measure 'Farms per 1000 Acres' = ```
+			
+			DIVIDE(
+			    SUMX(STATION_COMPARISON, STATION_COMPARISON[NUM_FARMS]) * 1000,
+			    [Total Acreage by Station],
+			    0
+			)
+			
+			```
+		lineageTag: 38515241-e71c-4435-b485-75553b4f0532
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Farm Size' = ```
+			
+			DIVIDE(
+			    [Total Acreage by Station],
+			    SUMX(STATION_COMPARISON, STATION_COMPARISON[NUM_FARMS]),
+			    0
+			)
+			
+			```
+		lineageTag: e20a5523-4d61-48c7-b94a-8392a3d6197a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total High Pest Days' = ```
+			
+			SUMX(
+			    AGG_FARM_YEARLY,
+			    AGG_FARM_YEARLY[HIGH_PEST_DAYS]
+			)
+			
+			```
+		lineageTag: 324761bc-a2fc-4235-921f-7dfb4a99bc11
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Weather Risk Score (All Data)' = ```
+			
+			AVERAGE(FACT_CROP_WEATHER[WEATHER_RISK_SCORE])
+			
+			```
+		lineageTag: cf1acd26-7ffc-4a1b-abc4-c38dca8eb70e
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Monthly High Pest Days' = ```
+			
+			SUMX(
+			    AGG_MONTHLY_PERFORMANCE,
+			    AGG_MONTHLY_PERFORMANCE[HIGH_PEST_RISK_DAYS]
+			)
+			
+			```
+		lineageTag: 3d01b101-1739-4102-ad93-da478a943093
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Monthly Weather Risk' = ```
+			
+			AVERAGE(AGG_MONTHLY_PERFORMANCE[AVG_WEATHER_RISK_SCORE])
+			
+			```
+		lineageTag: 92b43918-301c-45a9-8f37-a51b9fcdfdd6
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'High Pest Risk Records' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[PEST_RISK] = "High"
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 88f28ccb-f05a-4278-a0e0-78faf21e4ae9
+
+		changedProperty = Name
+
+	measure 'Medium Pest Risk Records' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[PEST_RISK] = "Medium"
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 3c6a8baa-cf2a-4acf-ba2d-c0aa60dd6bc9
+
+		changedProperty = Name
+
+	measure 'Low Pest Risk Records' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[PEST_RISK] = "Low"
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: a6033943-21fb-4325-be0d-6fffeec95a06
+
+		changedProperty = Name
+
+	measure 'High Risk Farms Today' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        FACT_CROP_WEATHER,
+			        FACT_CROP_WEATHER[WEATHER_RISK_SCORE] > 75
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: d299a7c5-c00e-4451-a5c0-f4e952b698f5
+
+		changedProperty = Name
+
+	measure 'Extreme Heat Alert Days' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        WEATHER_CROP_IMPACT,
+			        WEATHER_CROP_IMPACT[EXTREME_HEAT_FLAG] = TRUE()
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 6ea35d8d-9823-4dcf-b32b-fe2997a55e4f
+
+		changedProperty = Name
+
+	measure 'Frost Alert Days' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        WEATHER_CROP_IMPACT,
+			        WEATHER_CROP_IMPACT[FROST_FLAG] = TRUE()
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 2f1a53df-f803-434a-88e6-9ec437a4595a
+
+		changedProperty = Name
+
+	measure 'Heavy Rain Alert Days' = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        WEATHER_CROP_IMPACT,
+			        WEATHER_CROP_IMPACT[HEAVY_RAIN_FLAG] = TRUE()
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: f6be5a79-ac75-4dd7-8978-246484bb4f91
+
+		changedProperty = Name
+
+	measure 'Avg Risk Score by Farm' = ```
+			
+			AVERAGEX(
+			    FACT_CROP_WEATHER,
+			    FACT_CROP_WEATHER[WEATHER_RISK_SCORE]
+			)
+			
+			```
+		lineageTag: 87a2060c-23ef-41df-a3ee-af60a21e063c
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Max Risk Farm' = ```
+			
+			MAXX(
+			    VALUES(DIM_FARM[FARM_NAME]),
+			    [Avg Risk Score by Farm]
+			)
+			
+			```
+		lineageTag: 8e54c6c2-c6b0-48c6-a5a5-a615f9e1cb8a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Pest Risk as % of Days' = ```
+			
+			DIVIDE(
+			    [High Pest Risk Records],
+			    COUNTROWS(FACT_CROP_WEATHER),
+			    0
+			)
+			
+			```
+		lineageTag: 23d6dc87-75e5-4267-9955-49d95401d608
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'High Risk Days by Region' = ```
+			
+			SUMX(
+			    FILTER(
+			        AGG_MONTHLY_PERFORMANCE,
+			        AGG_MONTHLY_PERFORMANCE[AVG_WEATHER_RISK_SCORE] > 60
+			    ),
+			    AGG_MONTHLY_PERFORMANCE[HIGH_PEST_RISK_DAYS]
+			)
+			
+			```
+		lineageTag: bc9fb55b-1ccc-4fec-a9de-d153f28397d0
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Days in Period' = ```
+			
+			COUNTROWS(DISTINCT(DIM_DATE))
+			
+			```
+		formatString: 0
+		lineageTag: 78c28960-6506-4201-8751-3a5ba268f1d1
+
+		changedProperty = Name
+
+	measure 'Current Month' = ```
+			
+			FORMAT(TODAY(), "MMMM YYYY")
+			
+			```
+		lineageTag: e004afbe-3444-414a-9879-406b10611c6a
+
+		changedProperty = Name
+
+	measure 'Prior Month Revenue' = ```
+			
+			CALCULATE(
+			    [Total Revenue],
+			    DATEADD(DIM_DATE[CAL_DATE], -1, MONTH)
+			)
+			
+			```
+		lineageTag: f78af349-5723-4cbf-8614-2fece43b5d7c
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue MoM Change %' = ```
+			
+			DIVIDE(
+			    [Total Revenue] - [Prior Month Revenue],
+			    [Prior Month Revenue],
+			    0
+			)
+			
+			```
+		lineageTag: 1fc885d0-f0ac-46fa-a18f-52b074d3adef
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Health Color Flag' = ```
+			
+			IF(
+			    [Avg Crop Health Score] >= 75, "Green",
+			    IF([Avg Crop Health Score] >= 50, "Yellow", "Red")
+			)
+			
+			```
+		lineageTag: ef631c32-25a1-4f85-ae69-d0d97ab18782
+
+		changedProperty = Name
+
+	measure 'Risk Level' = ```
+			
+			IF(
+			    [Avg Weather Risk Score (All Data)] > 75, "Critical",
+			    IF([Avg Weather Risk Score (All Data)] > 50, "High",
+			    IF([Avg Weather Risk Score (All Data)] > 25, "Medium", "Low"))
+			)
+			
+			```
+		lineageTag: 7b53971f-8b9b-4dab-8529-2cf159216174
+
+		changedProperty = Name
+
+	column FARM_KEY
+		dataType: double
+		lineageTag: 37b2e99c-9850-439f-826f-a0a905aff022
+		sourceLineageTag: FARM_KEY
+		summarizeBy: sum
+		sourceColumn: FARM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CROP_KEY
+		dataType: double
+		lineageTag: 19f62b01-8ca6-49f6-9549-dbabe9ee7805
+		sourceLineageTag: CROP_KEY
+		summarizeBy: none
+		sourceColumn: CROP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column STATION_KEY
+		dataType: double
+		lineageTag: 4c13a161-fcd6-4b27-99d7-c5aedbfc662b
+		sourceLineageTag: STATION_KEY
+		summarizeBy: sum
+		sourceColumn: STATION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REGION_KEY
+		dataType: double
+		lineageTag: 2cfd5b86-2720-4e87-97ea-539ec989a768
+		sourceLineageTag: REGION_KEY
+		summarizeBy: none
+		sourceColumn: REGION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column YEAR
+		dataType: double
+		lineageTag: 6c3bd498-aa34-4463-8d25-76163e15f9c8
+		sourceLineageTag: YEAR
+		summarizeBy: sum
+		sourceColumn: YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_TEMP_F
+		dataType: double
+		lineageTag: 14d3b959-2f9f-4315-b62b-918f319238fe
+		sourceLineageTag: AVG_TEMP_F
+		summarizeBy: sum
+		sourceColumn: AVG_TEMP_F
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ANNUAL_PRECIPITATION_IN
+		dataType: double
+		lineageTag: 48ad135e-72c5-47dd-8a0a-3c9d91d16a04
+		sourceLineageTag: ANNUAL_PRECIPITATION_IN
+		summarizeBy: sum
+		sourceColumn: ANNUAL_PRECIPITATION_IN
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_HEALTH_SCORE
+		dataType: double
+		lineageTag: 06346b17-47aa-4e4c-87a7-f0bc63d3667b
+		sourceLineageTag: AVG_HEALTH_SCORE
+		summarizeBy: sum
+		sourceColumn: AVG_HEALTH_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_GROWING_YIELD
+		dataType: double
+		lineageTag: 9dce9064-1f15-4bc9-b206-b09385291a4b
+		sourceLineageTag: AVG_GROWING_YIELD
+		summarizeBy: sum
+		sourceColumn: AVG_GROWING_YIELD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ANNUAL_REVENUE_USD
+		dataType: double
+		lineageTag: de0366d1-8eba-4c49-971a-e591c9251896
+		sourceLineageTag: ANNUAL_REVENUE_USD
+		summarizeBy: sum
+		sourceColumn: ANNUAL_REVENUE_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ANNUAL_IRRIGATION_COST_USD
+		dataType: double
+		lineageTag: ea39d80f-db0d-4600-a653-d4462e969cbb
+		sourceLineageTag: ANNUAL_IRRIGATION_COST_USD
+		summarizeBy: sum
+		sourceColumn: ANNUAL_IRRIGATION_COST_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NET_REVENUE_USD
+		dataType: double
+		lineageTag: dd6fd45c-0bb6-4872-bc99-a5dc97244697
+		sourceLineageTag: NET_REVENUE_USD
+		summarizeBy: sum
+		sourceColumn: NET_REVENUE_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_RISK_SCORE
+		dataType: double
+		lineageTag: e9a4d49c-dd6c-40cc-9bbf-bd273328ad75
+		sourceLineageTag: AVG_RISK_SCORE
+		summarizeBy: sum
+		sourceColumn: AVG_RISK_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HIGH_PEST_DAYS
+		dataType: double
+		lineageTag: 432b0dfd-ec2e-4149-8338-4064b074d637
+		sourceLineageTag: HIGH_PEST_DAYS
+		summarizeBy: sum
+		sourceColumn: HIGH_PEST_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EXTREME_HEAT_DAYS
+		dataType: double
+		lineageTag: 6fbc7cac-077c-4bd2-ae34-38d46d520506
+		sourceLineageTag: EXTREME_HEAT_DAYS
+		summarizeBy: sum
+		sourceColumn: EXTREME_HEAT_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FROST_DAYS
+		dataType: double
+		lineageTag: 76dbf5aa-e130-4f97-96a5-949c53c45903
+		sourceLineageTag: FROST_DAYS
+		summarizeBy: sum
+		sourceColumn: FROST_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition AGG_FARM_YEARLY = entity
+		mode: directLake
+		source
+			entityName: AGG_FARM_YEARLY
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

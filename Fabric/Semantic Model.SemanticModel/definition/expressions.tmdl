@@ -1,0 +1,9 @@
+expression 'DirectLake - USWeatherHistory_Snowflake_Lakehouse' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/61ba8ca2-d3dc-44eb-a2b2-55734e233719/7641ea6e-98ec-4367-91d6-a16d980469c6", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: 2fc627ec-94fc-4b97-bebb-57f626392942
+
+	annotation PBI_IncludeFutureArtifacts = False
+

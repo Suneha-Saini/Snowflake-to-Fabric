@@ -1,0 +1,141 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e21c39867a089963a390",
+  "position": {
+    "x": 398.54545454545456,
+    "y": 384,
+    "z": 3000,
+    "height": 336,
+    "width": 384,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_REGION"
+                    }
+                  },
+                  "Property": "REGION_NAME"
+                }
+              },
+              "queryRef": "DIM_REGION.REGION_NAME",
+              "nativeQueryRef": "REGION_NAME",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "REGIONAL_CROP_PERFORMANCE"
+                        }
+                      },
+                      "Property": "AVG_YIELD_PER_ACRE"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(REGIONAL_CROP_PERFORMANCE.AVG_YIELD_PER_ACRE)",
+              "nativeQueryRef": "Average of AVG_YIELD_PER_ACRE"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "REGIONAL_CROP_PERFORMANCE"
+                      }
+                    },
+                    "Property": "AVG_YIELD_PER_ACRE"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0a9ec4b02424c609cbe6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_REGION"
+              }
+            },
+            "Property": "REGION_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dfc9a947b3b8cb140e91",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "REGIONAL_CROP_PERFORMANCE"
+                  }
+                },
+                "Property": "AVG_YIELD_PER_ACRE"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

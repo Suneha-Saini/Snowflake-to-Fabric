@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "a15f6b4c6a0a0a4aa3ac",
+  "position": {
+    "x": 474.18181818181819,
+    "y": 183.27272727272728,
+    "z": 4000,
+    "height": 260.36363636363637,
+    "width": 481.45454545454544,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AGG_FARM_YEARLY"
+                    }
+                  },
+                  "Property": "Annual Irrigation Cost"
+                }
+              },
+              "queryRef": "AGG_FARM_YEARLY.Annual Irrigation Cost",
+              "nativeQueryRef": "Annual Irrigation Cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AGG_FARM_YEARLY"
+                    }
+                  },
+                  "Property": "Annual Revenue"
+                }
+              },
+              "queryRef": "AGG_FARM_YEARLY.Annual Revenue",
+              "nativeQueryRef": "Annual Revenue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AGG_FARM_YEARLY"
+                    }
+                  },
+                  "Property": "Annual Net Revenue"
+                }
+              },
+              "queryRef": "AGG_FARM_YEARLY.Annual Net Revenue",
+              "nativeQueryRef": "Annual Net Revenue"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AGG_FARM_YEARLY"
+                  }
+                },
+                "Property": "Annual Irrigation Cost"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "797550e502e52b00d2ee",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AGG_FARM_YEARLY"
+              }
+            },
+            "Property": "Annual Irrigation Cost"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0dd2e7712e21c18ad775",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AGG_FARM_YEARLY"
+              }
+            },
+            "Property": "Annual Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7779f5156413687400c2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AGG_FARM_YEARLY"
+              }
+            },
+            "Property": "Annual Net Revenue"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

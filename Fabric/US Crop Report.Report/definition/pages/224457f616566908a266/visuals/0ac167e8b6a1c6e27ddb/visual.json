@@ -1,0 +1,161 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "0ac167e8b6a1c6e27ddb",
+  "position": {
+    "x": 619.63636363636363,
+    "y": 142.54545454545453,
+    "z": 6000,
+    "height": 240,
+    "width": 660.36363636363637,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_REGION"
+                    }
+                  },
+                  "Property": "REGION_NAME"
+                }
+              },
+              "queryRef": "DIM_REGION.REGION_NAME",
+              "nativeQueryRef": "REGION_NAME",
+              "active": true
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_CROP_WEATHER"
+                        }
+                      },
+                      "Property": "DAILY_AVG_TEMP_F"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FACT_CROP_WEATHER.DAILY_AVG_TEMP_F)",
+              "nativeQueryRef": "Sum of DAILY_AVG_TEMP_F",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_CROP_WEATHER"
+                        }
+                      },
+                      "Property": "CROP_HEALTH_SCORE"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FACT_CROP_WEATHER.CROP_HEALTH_SCORE)",
+              "nativeQueryRef": "Sum of CROP_HEALTH_SCORE"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ae499a5479133ea470e3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_REGION"
+              }
+            },
+            "Property": "REGION_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fd545a7655d09c01e624",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_CROP_WEATHER"
+                  }
+                },
+                "Property": "DAILY_AVG_TEMP_F"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6f986dd52c9302a080a2",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_CROP_WEATHER"
+                  }
+                },
+                "Property": "CROP_HEALTH_SCORE"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

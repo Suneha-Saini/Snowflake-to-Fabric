@@ -1,0 +1,124 @@
+table TEMPERATURE_ANALYSIS
+	lineageTag: 0f3a63d1-4f91-4e9b-8304-2d7eedf7ed32
+	sourceLineageTag: [dbo].[TEMPERATURE_ANALYSIS]
+
+	column STATION_CODE
+		dataType: string
+		lineageTag: bd5679ae-235f-439a-8101-cde1de67abdb
+		sourceLineageTag: STATION_CODE
+		summarizeBy: none
+		sourceColumn: STATION_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CITY
+		dataType: string
+		lineageTag: 01c1a8e3-90a5-4c78-a1bf-d9ad77b8654a
+		sourceLineageTag: CITY
+		summarizeBy: none
+		sourceColumn: CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATE
+		dataType: string
+		lineageTag: 3718a4fb-105e-483c-8f0a-3eb293ade897
+		sourceLineageTag: STATE
+		summarizeBy: none
+		sourceColumn: STATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEMP_CATEGORY
+		dataType: string
+		lineageTag: 7c126fef-8dfc-45c9-89c9-324d578ee81f
+		sourceLineageTag: TEMP_CATEGORY
+		summarizeBy: none
+		sourceColumn: TEMP_CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAYS
+		dataType: double
+		lineageTag: 92316c68-cc2d-4c65-b67b-f9cd71d23ca3
+		sourceLineageTag: DAYS
+		summarizeBy: sum
+		sourceColumn: DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PCT_OF_YEAR
+		dataType: double
+		lineageTag: ebf9c962-3d16-4891-bd1d-2c5411aa7f58
+		sourceLineageTag: PCT_OF_YEAR
+		summarizeBy: sum
+		sourceColumn: PCT_OF_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_TEMP
+		dataType: double
+		lineageTag: dc1e0e47-017a-4bcb-a409-949d2dc230ba
+		sourceLineageTag: AVG_TEMP
+		summarizeBy: sum
+		sourceColumn: AVG_TEMP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_DAILY_PRECIP
+		dataType: double
+		lineageTag: c0fdf2a9-6dc6-4ff8-bef0-cfb08908ce52
+		sourceLineageTag: AVG_DAILY_PRECIP
+		summarizeBy: sum
+		sourceColumn: AVG_DAILY_PRECIP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_DAILY_RANGE
+		dataType: double
+		lineageTag: 18e6d2f8-9c53-4212-9ec3-b94bd6b2cc20
+		sourceLineageTag: AVG_DAILY_RANGE
+		summarizeBy: sum
+		sourceColumn: AVG_DAILY_RANGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RECORD_HIGHS
+		dataType: double
+		lineageTag: cd64fbd7-d707-4b1f-8f2a-95f4ea5142fe
+		sourceLineageTag: RECORD_HIGHS
+		summarizeBy: sum
+		sourceColumn: RECORD_HIGHS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RECORD_LOWS
+		dataType: double
+		lineageTag: b8c9dde1-28d5-466e-bc5b-94f0b56c716f
+		sourceLineageTag: RECORD_LOWS
+		summarizeBy: sum
+		sourceColumn: RECORD_LOWS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition TEMPERATURE_ANALYSIS = entity
+		mode: directLake
+		source
+			entityName: TEMPERATURE_ANALYSIS
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

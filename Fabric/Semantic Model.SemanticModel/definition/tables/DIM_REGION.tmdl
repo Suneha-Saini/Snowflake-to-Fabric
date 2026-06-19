@@ -1,0 +1,31 @@
+table DIM_REGION
+	lineageTag: ac2c5040-43d4-4856-9c12-a7e6e8fcd323
+	sourceLineageTag: [dbo].[DIM_REGION]
+
+	column REGION_KEY
+		dataType: double
+		lineageTag: d718502a-2be1-462d-8d29-a36a696120cc
+		sourceLineageTag: REGION_KEY
+		summarizeBy: none
+		sourceColumn: REGION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REGION_NAME
+		dataType: string
+		lineageTag: 5a855d0e-c847-4351-8dd5-0210b08e7586
+		sourceLineageTag: REGION_NAME
+		summarizeBy: none
+		sourceColumn: REGION_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_REGION = entity
+		mode: directLake
+		source
+			entityName: DIM_REGION
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

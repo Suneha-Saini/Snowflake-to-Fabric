@@ -1,0 +1,141 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "4357adf44c425260435a",
+  "position": {
+    "x": 800,
+    "y": 384,
+    "z": 2000,
+    "height": 336,
+    "width": 480,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_REGION"
+                    }
+                  },
+                  "Property": "REGION_NAME"
+                }
+              },
+              "queryRef": "DIM_REGION.REGION_NAME",
+              "nativeQueryRef": "REGION_NAME",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_CROP_WEATHER"
+                        }
+                      },
+                      "Property": "CROP_HEALTH_SCORE"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FACT_CROP_WEATHER.CROP_HEALTH_SCORE)",
+              "nativeQueryRef": "Sum of CROP_HEALTH_SCORE"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "FACT_CROP_WEATHER"
+                      }
+                    },
+                    "Property": "CROP_HEALTH_SCORE"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7ebd7ae7274a4b45b006",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_REGION"
+              }
+            },
+            "Property": "REGION_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c53f007bd341bd012b51",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_CROP_WEATHER"
+                  }
+                },
+                "Property": "CROP_HEALTH_SCORE"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

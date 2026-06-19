@@ -1,0 +1,126 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "9500eb1f68a976a8128a",
+  "position": {
+    "x": 906.18181818181813,
+    "y": 468.36363636363637,
+    "z": 7000,
+    "height": 251.63636363636363,
+    "width": 373.81818181818181,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_REGION"
+                    }
+                  },
+                  "Property": "REGION_NAME"
+                }
+              },
+              "queryRef": "DIM_REGION.REGION_NAME",
+              "nativeQueryRef": "REGION_NAME",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AGG_FARM_YEARLY"
+                    }
+                  },
+                  "Property": "Irrigation Cost Ratio"
+                }
+              },
+              "queryRef": "AGG_FARM_YEARLY.Irrigation Cost Ratio",
+              "nativeQueryRef": "Irrigation Cost Ratio"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AGG_FARM_YEARLY"
+                  }
+                },
+                "Property": "Irrigation Cost Ratio"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "90163b51c0ba9a747dce",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_REGION"
+              }
+            },
+            "Property": "REGION_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e86c89fb901a063d715b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AGG_FARM_YEARLY"
+              }
+            },
+            "Property": "Irrigation Cost Ratio"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

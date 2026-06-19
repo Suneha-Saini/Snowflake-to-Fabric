@@ -1,0 +1,31 @@
+table DIM_CROP
+	lineageTag: e18ffaef-7d53-4678-9f3e-820c6a060543
+	sourceLineageTag: [dbo].[DIM_CROP]
+
+	column CROP_KEY
+		dataType: double
+		lineageTag: ca740081-2eb4-4782-8209-28d834555f46
+		sourceLineageTag: CROP_KEY
+		summarizeBy: none
+		sourceColumn: CROP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CROP_NAME
+		dataType: string
+		lineageTag: fa75734b-f6da-424e-9f96-c4caf4a8573c
+		sourceLineageTag: CROP_NAME
+		summarizeBy: none
+		sourceColumn: CROP_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_CROP = entity
+		mode: directLake
+		source
+			entityName: DIM_CROP
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

@@ -1,0 +1,343 @@
+table AGG_MONTHLY_PERFORMANCE
+	isHidden
+	lineageTag: 8452bef5-1a45-4e08-a8fc-83b06f3463a5
+	sourceLineageTag: [dbo].[AGG_MONTHLY_PERFORMANCE]
+
+	measure 'Cost per Gallon' = SUM('AGG_MONTHLY_PERFORMANCE'[TOTAL_IRRIGATION_COST_USD]) / SUM('AGG_MONTHLY_PERFORMANCE'[TOTAL_IRRIGATION_GALLONS])
+		lineageTag: ad60fbeb-7994-46ed-bda5-af8149332811
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REGION_KEY
+		dataType: double
+		isHidden
+		lineageTag: 20eb1c09-8c42-406d-84b1-998c6b1c4deb
+		sourceLineageTag: REGION_KEY
+		summarizeBy: sum
+		sourceColumn: REGION_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column STATION_KEY
+		dataType: double
+		isHidden
+		lineageTag: 8a642d76-129c-4597-a33d-0ec31a42f729
+		sourceLineageTag: STATION_KEY
+		summarizeBy: sum
+		sourceColumn: STATION_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CROP_KEY
+		dataType: double
+		isHidden
+		lineageTag: 3ae2ca25-49bf-4ba3-b4cc-65952ea47a58
+		sourceLineageTag: CROP_KEY
+		summarizeBy: sum
+		sourceColumn: CROP_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column YEAR
+		dataType: double
+		isHidden
+		lineageTag: 3e9f0a04-0d0f-49df-ad52-5e9575689111
+		sourceLineageTag: YEAR
+		summarizeBy: sum
+		sourceColumn: YEAR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MONTH_NUM
+		dataType: double
+		isHidden
+		lineageTag: 26322635-e7e6-4c36-99b6-ab3c534a2930
+		sourceLineageTag: MONTH_NUM
+		summarizeBy: sum
+		sourceColumn: MONTH_NUM
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MONTH_DATE_KEY
+		dataType: double
+		isHidden
+		lineageTag: 6634af6d-4c73-4f00-a9e5-ac8ffb591efd
+		sourceLineageTag: MONTH_DATE_KEY
+		summarizeBy: none
+		sourceColumn: MONTH_DATE_KEY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MEASUREMENT_COUNT
+		dataType: double
+		isHidden
+		lineageTag: 7d0951eb-c738-42b0-b872-b6159d620a63
+		sourceLineageTag: MEASUREMENT_COUNT
+		summarizeBy: sum
+		sourceColumn: MEASUREMENT_COUNT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ACTIVE_FARMS
+		dataType: double
+		isHidden
+		lineageTag: 9a49bf2e-62e0-42d1-aec0-f6a607ae8938
+		sourceLineageTag: ACTIVE_FARMS
+		summarizeBy: sum
+		sourceColumn: ACTIVE_FARMS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_TEMP_F
+		dataType: double
+		isHidden
+		lineageTag: 48b6630f-14ee-4490-a7a0-8f67af93d4fa
+		sourceLineageTag: AVG_TEMP_F
+		summarizeBy: sum
+		sourceColumn: AVG_TEMP_F
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MAX_TEMP_F
+		dataType: double
+		isHidden
+		lineageTag: 0a19b384-6329-4d29-be79-c86b1d5cf869
+		sourceLineageTag: MAX_TEMP_F
+		summarizeBy: sum
+		sourceColumn: MAX_TEMP_F
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MIN_TEMP_F
+		dataType: double
+		isHidden
+		lineageTag: 9d4af8a3-deaa-4334-8746-29b7523945fa
+		sourceLineageTag: MIN_TEMP_F
+		summarizeBy: sum
+		sourceColumn: MIN_TEMP_F
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_PRECIPITATION_IN
+		dataType: double
+		isHidden
+		lineageTag: d467a66d-13e3-4504-9535-59fb1b64c8f2
+		sourceLineageTag: TOTAL_PRECIPITATION_IN
+		summarizeBy: sum
+		sourceColumn: TOTAL_PRECIPITATION_IN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_SOIL_MOISTURE_PCT
+		dataType: double
+		isHidden
+		lineageTag: 783ff481-d9d6-44b8-b3b4-d0d43f8f018c
+		sourceLineageTag: AVG_SOIL_MOISTURE_PCT
+		summarizeBy: sum
+		sourceColumn: AVG_SOIL_MOISTURE_PCT
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_CROP_HEALTH_SCORE
+		dataType: double
+		isHidden
+		lineageTag: 2eeaa6f0-fd89-4dc1-8bce-ebae6ebd954a
+		sourceLineageTag: AVG_CROP_HEALTH_SCORE
+		summarizeBy: sum
+		sourceColumn: AVG_CROP_HEALTH_SCORE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_YIELD_PER_ACRE
+		dataType: double
+		isHidden
+		lineageTag: f3805fc9-9e6e-4fa1-a939-07cd8c5e9ac1
+		sourceLineageTag: AVG_YIELD_PER_ACRE
+		summarizeBy: sum
+		sourceColumn: AVG_YIELD_PER_ACRE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_IRRIGATION_GALLONS
+		dataType: double
+		isHidden
+		lineageTag: e60a363c-4fe1-4caa-af23-df2f4e0fb645
+		sourceLineageTag: TOTAL_IRRIGATION_GALLONS
+		summarizeBy: sum
+		sourceColumn: TOTAL_IRRIGATION_GALLONS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_IRRIGATION_COST_USD
+		dataType: double
+		isHidden
+		lineageTag: 09a6221b-f611-4167-ae83-96a950e8a687
+		sourceLineageTag: TOTAL_IRRIGATION_COST_USD
+		summarizeBy: sum
+		sourceColumn: TOTAL_IRRIGATION_COST_USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_ESTIMATED_REVENUE_USD
+		dataType: double
+		isHidden
+		lineageTag: 92264280-bab5-4fb0-bbf3-7d7f20c1d2cf
+		sourceLineageTag: TOTAL_ESTIMATED_REVENUE_USD
+		summarizeBy: sum
+		sourceColumn: TOTAL_ESTIMATED_REVENUE_USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_WEATHER_RISK_SCORE
+		dataType: double
+		isHidden
+		lineageTag: 25a2e5e9-49f8-4af9-8e03-9d1d1f9bc18b
+		sourceLineageTag: AVG_WEATHER_RISK_SCORE
+		summarizeBy: sum
+		sourceColumn: AVG_WEATHER_RISK_SCORE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HIGH_PEST_RISK_DAYS
+		dataType: double
+		isHidden
+		lineageTag: 3f58193f-285b-4f2e-bb7b-15daae5af2f0
+		sourceLineageTag: HIGH_PEST_RISK_DAYS
+		summarizeBy: sum
+		sourceColumn: HIGH_PEST_RISK_DAYS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROWING_SEASON_DAYS
+		dataType: double
+		isHidden
+		lineageTag: 83f36d82-2617-404a-9dbc-44d209336937
+		sourceLineageTag: GROWING_SEASON_DAYS
+		summarizeBy: sum
+		sourceColumn: GROWING_SEASON_DAYS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EXTREME_HEAT_DAYS
+		dataType: double
+		isHidden
+		lineageTag: bfd54f9a-5f11-4956-8328-8e8ecf3dfbb9
+		sourceLineageTag: EXTREME_HEAT_DAYS
+		summarizeBy: sum
+		sourceColumn: EXTREME_HEAT_DAYS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FROST_DAYS
+		dataType: double
+		isHidden
+		lineageTag: dc7a4af2-1609-4c21-8bec-c77128c3bcb1
+		sourceLineageTag: FROST_DAYS
+		summarizeBy: sum
+		sourceColumn: FROST_DAYS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition AGG_MONTHLY_PERFORMANCE = entity
+		mode: directLake
+		source
+			entityName: AGG_MONTHLY_PERFORMANCE
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+
+	changedProperty = IsHidden
+

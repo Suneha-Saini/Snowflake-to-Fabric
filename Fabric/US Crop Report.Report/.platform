@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "US Crop Report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "115be17a-022c-af11-42f5-a18c513b22ef"
+  }
+}

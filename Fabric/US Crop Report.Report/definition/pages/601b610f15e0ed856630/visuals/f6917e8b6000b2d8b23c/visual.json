@@ -1,0 +1,174 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "f6917e8b6000b2d8b23c",
+  "position": {
+    "x": 955.63636363636363,
+    "y": 199.27272727272728,
+    "z": 5000,
+    "height": 260.36363636363637,
+    "width": 315.63636363636363,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_DATE"
+                    }
+                  },
+                  "Property": "CAL_DATE"
+                }
+              },
+              "queryRef": "DIM_DATE.CAL_DATE",
+              "nativeQueryRef": "CAL_DATE",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AGG_MONTHLY_PERFORMANCE"
+                        }
+                      },
+                      "Property": "TOTAL_ESTIMATED_REVENUE_USD"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(AGG_MONTHLY_PERFORMANCE.TOTAL_ESTIMATED_REVENUE_USD)",
+              "nativeQueryRef": "Sum of TOTAL_ESTIMATED_REVENUE_USD"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AGG_MONTHLY_PERFORMANCE"
+                        }
+                      },
+                      "Property": "TOTAL_IRRIGATION_COST_USD"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(AGG_MONTHLY_PERFORMANCE.TOTAL_IRRIGATION_COST_USD)",
+              "nativeQueryRef": "Sum of TOTAL_IRRIGATION_COST_USD"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_DATE"
+                  }
+                },
+                "Property": "CAL_DATE"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a06627cb8e08bce6521b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_DATE"
+              }
+            },
+            "Property": "CAL_DATE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "559e71c164e540c9e996",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AGG_MONTHLY_PERFORMANCE"
+                  }
+                },
+                "Property": "TOTAL_ESTIMATED_REVENUE_USD"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "00c71ea001944c0d91a9",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AGG_MONTHLY_PERFORMANCE"
+                  }
+                },
+                "Property": "TOTAL_IRRIGATION_COST_USD"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

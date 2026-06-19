@@ -1,0 +1,99 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Dataflow",
+  "queryGroups": [],
+  "documentLocale": "en-GB",
+  "queriesMetadata": {
+    "AGG_FARM_YEARLY": {
+      "queryId": "311dcc0a-94c6-4003-b1f9-032b27dffbd0",
+      "queryName": "AGG_FARM_YEARLY",
+      "loadEnabled": false
+    },
+    "AGG_MONTHLY_PERFORMANCE": {
+      "queryId": "99cb8270-51a4-44e8-98c5-edc79c34d388",
+      "queryName": "AGG_MONTHLY_PERFORMANCE",
+      "loadEnabled": false
+    },
+    "DIM_CROP": {
+      "queryId": "4497d5aa-55af-4f50-bc94-adf8c51d1789",
+      "queryName": "DIM_CROP",
+      "loadEnabled": false
+    },
+    "DIM_DATE": {
+      "queryId": "1976ae67-3069-4c23-b107-8fd921595e0a",
+      "queryName": "DIM_DATE",
+      "loadEnabled": false
+    },
+    "DIM_FARM": {
+      "queryId": "17168638-9a29-432a-b660-5a7e2022d9e5",
+      "queryName": "DIM_FARM",
+      "loadEnabled": false
+    },
+    "DIM_REGION": {
+      "queryId": "1378d97c-a417-40c9-b53a-586e7396a5b2",
+      "queryName": "DIM_REGION",
+      "loadEnabled": false
+    },
+    "DIM_STATION": {
+      "queryId": "3e5c6d0f-604e-4d80-9238-85fab2aaf235",
+      "queryName": "DIM_STATION",
+      "loadEnabled": false
+    },
+    "FACT_CROP_WEATHER": {
+      "queryId": "87a3c3ca-f31d-4a63-a27d-f67afffbe7c5",
+      "queryName": "FACT_CROP_WEATHER",
+      "loadEnabled": false
+    },
+    "FARM_WEEKLY_DASHBOARD": {
+      "queryId": "8d1558c0-7230-41f0-9401-33e441bb84ce",
+      "queryName": "FARM_WEEKLY_DASHBOARD",
+      "loadEnabled": false
+    },
+    "MONTHLY_TRENDS": {
+      "queryId": "8a3f3711-bb9c-4c94-bd06-f3b466d23a63",
+      "queryName": "MONTHLY_TRENDS",
+      "loadEnabled": false
+    },
+    "REGIONAL_CROP_PERFORMANCE": {
+      "queryId": "0a3b9342-ee54-46a1-b6d2-73c45ec24b2c",
+      "queryName": "REGIONAL_CROP_PERFORMANCE",
+      "loadEnabled": false
+    },
+    "STATION_COMPARISON": {
+      "queryId": "69cad740-3abe-47e8-8933-5ae6e9547f24",
+      "queryName": "STATION_COMPARISON",
+      "loadEnabled": false
+    },
+    "TEMPERATURE_ANALYSIS": {
+      "queryId": "ff1defbe-f912-49ba-b33b-cccbeff5c416",
+      "queryName": "TEMPERATURE_ANALYSIS",
+      "loadEnabled": false
+    },
+    "WEATHER_CROP_IMPACT": {
+      "queryId": "68ae8b65-e898-4677-93b0-224902db7f3f",
+      "queryName": "WEATHER_CROP_IMPACT",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "f7f8b95e-dc1d-44a3-ad4e-bcf5311fd1ab",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "ek33240.central-india.azure.snowflakecomputing.com;COMPUTE_WH",
+      "kind": "Snowflake",
+      "connectionId": "{\"ClusterId\":\"a1e53f5d-4471-4e02-ae54-038449750ac0\",\"DatasourceId\":\"8031ba1a-4091-4f02-9e1f-ca80d1366aa0\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"a1e53f5d-4471-4e02-ae54-038449750ac0\",\"DatasourceId\":\"1828c330-d164-44be-8064-c0884d3c21e1\"}"
+    }
+  ]
+}

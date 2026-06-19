@@ -1,0 +1,141 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "b1bef6da0010d7aa8800",
+  "position": {
+    "x": 0,
+    "y": 290.90909090909093,
+    "z": 11000,
+    "height": 429.09090909090907,
+    "width": 173.09090909090909,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_REGION"
+                    }
+                  },
+                  "Property": "REGION_NAME"
+                }
+              },
+              "queryRef": "DIM_REGION.REGION_NAME",
+              "nativeQueryRef": "REGION_NAME",
+              "active": true
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AGG_MONTHLY_PERFORMANCE"
+                    }
+                  },
+                  "Property": "Cost per Gallon"
+                }
+              },
+              "queryRef": "AGG_MONTHLY_PERFORMANCE.Cost per Gallon",
+              "nativeQueryRef": "Cost per Gallon",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AGG_FARM_YEARLY"
+                    }
+                  },
+                  "Property": "Avg Net Margin %"
+                }
+              },
+              "queryRef": "AGG_FARM_YEARLY.Avg Net Margin %",
+              "nativeQueryRef": "Avg Net Margin %"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9ffdc206092d17ca7c12",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_REGION"
+              }
+            },
+            "Property": "REGION_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "003e12770a4deee04b8e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AGG_MONTHLY_PERFORMANCE"
+              }
+            },
+            "Property": "Cost per Gallon"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c983dcc3a9941196c36b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AGG_FARM_YEARLY"
+              }
+            },
+            "Property": "Avg Net Margin %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

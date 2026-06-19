@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "USWeatherHistory_Snowflake_Lakehouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "980469c6-a16d-91d6-4367-98ec7641ea6e"
+  }
+}

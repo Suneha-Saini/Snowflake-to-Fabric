@@ -1,0 +1,179 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "66361f5b0d0128e0e06a",
+  "position": {
+    "x": 0,
+    "y": 384,
+    "z": 1000,
+    "height": 336,
+    "width": 398.54545454545456,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "REGIONAL_CROP_PERFORMANCE"
+                    }
+                  },
+                  "Property": "REGION"
+                }
+              },
+              "queryRef": "REGIONAL_CROP_PERFORMANCE.REGION",
+              "nativeQueryRef": "REGION",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "STATION_COMPARISON"
+                        }
+                      },
+                      "Property": "TOTAL_FARM_ACREAGE"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(STATION_COMPARISON.TOTAL_FARM_ACREAGE)",
+              "nativeQueryRef": "Sum of TOTAL_FARM_ACREAGE"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "REGIONAL_CROP_PERFORMANCE"
+                        }
+                      },
+                      "Property": "TOTAL_ACREAGE"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(REGIONAL_CROP_PERFORMANCE.TOTAL_ACREAGE)",
+              "nativeQueryRef": "Sum of TOTAL_ACREAGE"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "STATION_COMPARISON"
+                      }
+                    },
+                    "Property": "TOTAL_FARM_ACREAGE"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f1ad50b85bb003e1dc51",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "REGIONAL_CROP_PERFORMANCE"
+              }
+            },
+            "Property": "REGION"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b4282ca5be0a3c109206",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "STATION_COMPARISON"
+                  }
+                },
+                "Property": "TOTAL_FARM_ACREAGE"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "67d67ea120a80c31d03d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "REGIONAL_CROP_PERFORMANCE"
+                  }
+                },
+                "Property": "TOTAL_ACREAGE"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+table MONTHLY_TRENDS
+	lineageTag: 1d65f981-dcb4-4603-b2b9-0430cb10254b
+	sourceLineageTag: [dbo].[MONTHLY_TRENDS]
+
+	column STATION_CODE
+		dataType: string
+		lineageTag: 0b5527c7-5aef-4e9c-bef1-65f35406788e
+		sourceLineageTag: STATION_CODE
+		summarizeBy: none
+		sourceColumn: STATION_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CITY
+		dataType: string
+		lineageTag: 50dd352d-b8cb-4823-94f8-9fb5039a8b11
+		sourceLineageTag: CITY
+		summarizeBy: none
+		sourceColumn: CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATE
+		dataType: string
+		lineageTag: 3ef910d5-70ea-4f37-93ae-d7a96e57f068
+		sourceLineageTag: STATE
+		summarizeBy: none
+		sourceColumn: STATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH
+		dataType: double
+		lineageTag: cc13173f-ba45-43a3-aa80-0318e881172e
+		sourceLineageTag: MONTH
+		summarizeBy: sum
+		sourceColumn: MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MONTH_NAME
+		dataType: string
+		lineageTag: 3d0f8b4c-a2a1-4321-87a1-d9f573e1565c
+		sourceLineageTag: MONTH_NAME
+		summarizeBy: none
+		sourceColumn: MONTH_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAYS_IN_MONTH
+		dataType: double
+		lineageTag: 61ebdc13-55b5-4106-b06f-5b2a85cae2d5
+		sourceLineageTag: DAYS_IN_MONTH
+		summarizeBy: sum
+		sourceColumn: DAYS_IN_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_TEMP
+		dataType: double
+		lineageTag: 50dc046f-7627-4108-b341-af44e6cce9b8
+		sourceLineageTag: AVG_TEMP
+		summarizeBy: sum
+		sourceColumn: AVG_TEMP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MIN_TEMP
+		dataType: double
+		lineageTag: 4b9439b4-cc7d-4cd0-9715-7bfb1daafaef
+		sourceLineageTag: MIN_TEMP
+		summarizeBy: sum
+		sourceColumn: MIN_TEMP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MAX_TEMP
+		dataType: double
+		lineageTag: 1eace0fe-e485-46f0-a814-6bddc4ebdfa6
+		sourceLineageTag: MAX_TEMP
+		summarizeBy: sum
+		sourceColumn: MAX_TEMP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_DAILY_RANGE
+		dataType: double
+		lineageTag: 807c50c6-427e-4966-a7fc-5ec54dc1be0e
+		sourceLineageTag: AVG_DAILY_RANGE
+		summarizeBy: sum
+		sourceColumn: AVG_DAILY_RANGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_PRECIPITATION
+		dataType: double
+		lineageTag: 88801461-35ac-4daf-9a1b-00bf19e4d85b
+		sourceLineageTag: TOTAL_PRECIPITATION
+		summarizeBy: sum
+		sourceColumn: TOTAL_PRECIPITATION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RAINY_DAYS
+		dataType: double
+		lineageTag: 37a12b47-0fbd-496a-afe8-749803525e56
+		sourceLineageTag: RAINY_DAYS
+		summarizeBy: sum
+		sourceColumn: RAINY_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_TEMP_DEVIATION
+		dataType: double
+		lineageTag: 0865f0af-530f-4ee3-858e-4609d267f58e
+		sourceLineageTag: AVG_TEMP_DEVIATION
+		summarizeBy: sum
+		sourceColumn: AVG_TEMP_DEVIATION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition MONTHLY_TRENDS = entity
+		mode: directLake
+		source
+			entityName: MONTHLY_TRENDS
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

@@ -1,0 +1,121 @@
+table DIM_DATE
+	lineageTag: ab55960b-2bb4-4f90-b72b-e1a46e94aadc
+	sourceLineageTag: [dbo].[DIM_DATE]
+
+	column DATE_KEY
+		dataType: double
+		lineageTag: 3c8cf0bc-d8f7-4555-8109-0ac5ee1909d5
+		sourceLineageTag: DATE_KEY
+		summarizeBy: none
+		sourceColumn: DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column YEAR
+		dataType: int64
+		formatString: 0
+		lineageTag: 516676d6-a930-4a94-a58c-f26045823a32
+		sourceLineageTag: YEAR
+		summarizeBy: sum
+		sourceColumn: YEAR
+
+		changedProperty = IsHidden
+
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUARTER
+		dataType: double
+		lineageTag: d13ba004-183d-47d1-adef-32e5986e5324
+		sourceLineageTag: QUARTER
+		summarizeBy: sum
+		sourceColumn: QUARTER
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MONTH_NUM
+		dataType: double
+		lineageTag: c0259519-d38e-4d57-a0a5-afc42cc778ab
+		sourceLineageTag: MONTH_NUM
+		summarizeBy: sum
+		sourceColumn: MONTH_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MONTH_NAME
+		dataType: string
+		lineageTag: 97a21c11-66a5-4083-b32a-f88945829c3a
+		sourceLineageTag: MONTH_NAME
+		summarizeBy: none
+		sourceColumn: MONTH_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column WEEK_OF_YEAR
+		dataType: double
+		lineageTag: 3e29369d-fea3-46cb-9cd6-e5a56d444f44
+		sourceLineageTag: WEEK_OF_YEAR
+		summarizeBy: sum
+		sourceColumn: WEEK_OF_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAY_NAME
+		dataType: string
+		lineageTag: 4c621b53-2411-4efa-ac2a-c672d3d075b0
+		sourceLineageTag: DAY_NAME
+		summarizeBy: none
+		sourceColumn: DAY_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY_OF_MONTH
+		dataType: double
+		lineageTag: 650c5e82-458c-427a-aede-9c52b57eaca3
+		sourceLineageTag: DAY_OF_MONTH
+		summarizeBy: sum
+		sourceColumn: DAY_OF_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAL_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7d42ecf1-043a-49a8-ae3f-a67e9821a70c
+		sourceLineageTag: CAL_DATE
+		summarizeBy: none
+		sourceColumn: CAL_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY_OF_WEEK
+		dataType: double
+		lineageTag: 8f31de4a-2fb0-4415-82ed-baa36c2aeda7
+		sourceLineageTag: DAY_OF_WEEK
+		summarizeBy: sum
+		sourceColumn: DAY_OF_WEEK
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_DATE = entity
+		mode: directLake
+		source
+			entityName: DIM_DATE
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

@@ -1,0 +1,196 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "112ee6074b46d7052636",
+  "position": {
+    "x": 801.4545454545455,
+    "y": 490.18181818181819,
+    "z": 8000,
+    "height": 229.81818181818181,
+    "width": 450.90909090909093,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "lineStackedColumnComboChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_CROP"
+                    }
+                  },
+                  "Property": "CROP_NAME"
+                }
+              },
+              "queryRef": "DIM_CROP.CROP_NAME",
+              "nativeQueryRef": "CROP_NAME",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AGG_FARM_YEARLY"
+                        }
+                      },
+                      "Property": "HIGH_PEST_DAYS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(AGG_FARM_YEARLY.HIGH_PEST_DAYS)",
+              "nativeQueryRef": "Sum of HIGH_PEST_DAYS"
+            }
+          ]
+        },
+        "Y2": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "REGIONAL_CROP_PERFORMANCE"
+                        }
+                      },
+                      "Property": "GROWING_SEASON_WEEKS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(REGIONAL_CROP_PERFORMANCE.GROWING_SEASON_WEEKS)",
+              "nativeQueryRef": "Sum of GROWING_SEASON_WEEKS"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "AGG_FARM_YEARLY"
+                      }
+                    },
+                    "Property": "HIGH_PEST_DAYS"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Combo chart — Pest Risk vs Growing Season (by crop)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#091D20'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7cb8996305a2567d8a20",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_CROP"
+              }
+            },
+            "Property": "CROP_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "293386b6a1b075d04901",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AGG_FARM_YEARLY"
+                  }
+                },
+                "Property": "HIGH_PEST_DAYS"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d5300e9c9e0a788604d4",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "REGIONAL_CROP_PERFORMANCE"
+                  }
+                },
+                "Property": "GROWING_SEASON_WEEKS"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

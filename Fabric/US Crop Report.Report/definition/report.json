@@ -1,0 +1,99 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY26SU05",
+      "reportVersionAtImport": {
+        "visual": "2.9.0",
+        "report": "3.3.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "reportSource": "QuickCreate",
+  "publicCustomVisuals": [
+    "advanceCardE03760C5AB684758B56AA29F9E6C257B"
+  ],
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY26SU05",
+          "path": "BaseThemes/CY26SU05.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "green-background-with-blue-gre17928163682518072.jpg",
+          "path": "green-background-with-blue-gre17928163682518072.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "green-background-with-blue-gre23465575934767158.jpg",
+          "path": "green-background-with-blue-gre23465575934767158.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "green-background-with-blue-gre35794005807940843.jpg",
+          "path": "green-background-with-blue-gre35794005807940843.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "green-background-with-blue-gre4208626408037851.jpg",
+          "path": "green-background-with-blue-gre4208626408037851.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "green-background-with-blue-gre4324154259987354.jpg",
+          "path": "green-background-with-blue-gre4324154259987354.jpg",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "allowInlineExploration": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

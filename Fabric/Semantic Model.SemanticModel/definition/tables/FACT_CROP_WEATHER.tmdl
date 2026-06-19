@@ -1,0 +1,225 @@
+table FACT_CROP_WEATHER
+	lineageTag: d07e7ceb-422e-408d-9a50-093e935fb967
+	sourceLineageTag: [dbo].[FACT_CROP_WEATHER]
+
+	column FARM_KEY
+		dataType: double
+		lineageTag: 257b10d3-9e25-4938-b995-57989c1f1c4f
+		sourceLineageTag: FARM_KEY
+		summarizeBy: none
+		sourceColumn: FARM_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CROP_KEY
+		dataType: double
+		lineageTag: 94c03114-c6d2-48ce-b53a-20ff1f6da74f
+		sourceLineageTag: CROP_KEY
+		summarizeBy: none
+		sourceColumn: CROP_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column STATION_KEY
+		dataType: double
+		lineageTag: bbd39f81-bc05-478a-8712-3e7704b4a63e
+		sourceLineageTag: STATION_KEY
+		summarizeBy: none
+		sourceColumn: STATION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REGION_KEY
+		dataType: double
+		lineageTag: d6ea2cc9-3811-41a6-9cb3-431de0b1e4fe
+		sourceLineageTag: REGION_KEY
+		summarizeBy: none
+		sourceColumn: REGION_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DATE_KEY
+		dataType: double
+		lineageTag: 9ac5915e-77b7-4210-ad9c-9f640ae26706
+		sourceLineageTag: DATE_KEY
+		summarizeBy: none
+		sourceColumn: DATE_KEY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MEASUREMENT_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e5894c19-15a3-431e-a734-856d954d0c33
+		sourceLineageTag: MEASUREMENT_DATE
+		summarizeBy: none
+		sourceColumn: MEASUREMENT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAILY_AVG_TEMP_F
+		dataType: double
+		lineageTag: 9a91adea-8b1c-4e3a-9dfc-01417ff658c7
+		sourceLineageTag: DAILY_AVG_TEMP_F
+		summarizeBy: sum
+		sourceColumn: DAILY_AVG_TEMP_F
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAILY_MAX_TEMP_F
+		dataType: double
+		lineageTag: 24217c70-d669-4198-ab63-974c5052640d
+		sourceLineageTag: DAILY_MAX_TEMP_F
+		summarizeBy: sum
+		sourceColumn: DAILY_MAX_TEMP_F
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAILY_MIN_TEMP_F
+		dataType: double
+		lineageTag: 3f496a0f-2402-4d9f-a3c7-5e8cb0fe3138
+		sourceLineageTag: DAILY_MIN_TEMP_F
+		summarizeBy: sum
+		sourceColumn: DAILY_MIN_TEMP_F
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAILY_PRECIPITATION_IN
+		dataType: double
+		lineageTag: 69b9f7bc-9b76-494c-a58a-8ccc3ee666c6
+		sourceLineageTag: DAILY_PRECIPITATION_IN
+		summarizeBy: sum
+		sourceColumn: DAILY_PRECIPITATION_IN
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SOIL_MOISTURE_PCT
+		dataType: double
+		lineageTag: 89255858-f6e4-4e11-a87b-3dfb59a2549a
+		sourceLineageTag: SOIL_MOISTURE_PCT
+		summarizeBy: sum
+		sourceColumn: SOIL_MOISTURE_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CROP_HEALTH_SCORE
+		dataType: double
+		lineageTag: c37d9447-c11a-4308-aa14-f0900ececb91
+		sourceLineageTag: CROP_HEALTH_SCORE
+		summarizeBy: sum
+		sourceColumn: CROP_HEALTH_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PROJECTED_YIELD_PER_ACRE
+		dataType: double
+		lineageTag: 7273304d-d46d-41a1-b3e8-c0fcc06c7ce5
+		sourceLineageTag: PROJECTED_YIELD_PER_ACRE
+		summarizeBy: sum
+		sourceColumn: PROJECTED_YIELD_PER_ACRE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IRRIGATION_GALLONS
+		dataType: double
+		lineageTag: 7488d878-a270-4d6c-a28b-389ada8110fe
+		sourceLineageTag: IRRIGATION_GALLONS
+		summarizeBy: sum
+		sourceColumn: IRRIGATION_GALLONS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IRRIGATION_COST_USD
+		dataType: double
+		lineageTag: e089a15d-e767-4eb5-b49c-ba0e6586a62b
+		sourceLineageTag: IRRIGATION_COST_USD
+		summarizeBy: sum
+		sourceColumn: IRRIGATION_COST_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PEST_RISK
+		dataType: string
+		lineageTag: 984100a2-4e23-436a-947b-be14b81faacd
+		sourceLineageTag: PEST_RISK
+		summarizeBy: none
+		sourceColumn: PEST_RISK
+
+		annotation SummarizationSetBy = Automatic
+
+	column WEATHER_RISK_SCORE
+		dataType: double
+		lineageTag: c14e94d1-afdd-4df4-8cfd-98ee53ebca76
+		sourceLineageTag: WEATHER_RISK_SCORE
+		summarizeBy: sum
+		sourceColumn: WEATHER_RISK_SCORE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ESTIMATED_DAILY_REVENUE_USD
+		dataType: double
+		lineageTag: 0583de34-2c0f-4ce4-938a-788d9e3b0d40
+		sourceLineageTag: ESTIMATED_DAILY_REVENUE_USD
+		summarizeBy: sum
+		sourceColumn: ESTIMATED_DAILY_REVENUE_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROWTH_STAGE
+		dataType: string
+		lineageTag: 383a093e-8e32-4ed3-92b8-9aef2821f2c0
+		sourceLineageTag: GROWTH_STAGE
+		summarizeBy: none
+		sourceColumn: GROWTH_STAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_GROWING_SEASON
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 40578443-8760-45e4-8cca-9427967d88a4
+		sourceLineageTag: IS_GROWING_SEASON
+		summarizeBy: none
+		sourceColumn: IS_GROWING_SEASON
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_CROP_WEATHER = entity
+		mode: directLake
+		source
+			entityName: FACT_CROP_WEATHER
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

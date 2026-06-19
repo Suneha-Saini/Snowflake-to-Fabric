@@ -1,0 +1,135 @@
+table STATION_COMPARISON
+	lineageTag: 50c75da5-1e8a-4664-bcc2-4aa58eb0d107
+	sourceLineageTag: [dbo].[STATION_COMPARISON]
+
+	column STATION_CODE
+		dataType: string
+		lineageTag: 5c7ae123-08fb-477d-ae19-8ab64abf6aa1
+		sourceLineageTag: STATION_CODE
+		summarizeBy: none
+		sourceColumn: STATION_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CITY
+		dataType: string
+		lineageTag: 82320733-cf18-4812-b29e-661ff94a7bdd
+		sourceLineageTag: CITY
+		summarizeBy: none
+		sourceColumn: CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATE
+		dataType: string
+		lineageTag: 2cdcd18f-2930-4eb5-9ef5-a7ec020c503d
+		sourceLineageTag: STATE
+		summarizeBy: none
+		sourceColumn: STATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column WEATHER_DAYS_RECORDED
+		dataType: double
+		lineageTag: f3abb712-9714-429b-9dea-589e926cd6ff
+		sourceLineageTag: WEATHER_DAYS_RECORDED
+		summarizeBy: sum
+		sourceColumn: WEATHER_DAYS_RECORDED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_TEMP
+		dataType: double
+		lineageTag: 6c8cfd4c-3f3d-42a6-9e76-320b9e035c38
+		sourceLineageTag: AVG_TEMP
+		summarizeBy: sum
+		sourceColumn: AVG_TEMP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_DAILY_PRECIP
+		dataType: double
+		lineageTag: d4eca60b-144f-4a46-b907-ebd79cfaaf6d
+		sourceLineageTag: AVG_DAILY_PRECIP
+		summarizeBy: sum
+		sourceColumn: AVG_DAILY_PRECIP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MAX_TEMP_RECORDED
+		dataType: double
+		lineageTag: 690b05ef-d5f4-45c9-a5bf-408de1550821
+		sourceLineageTag: MAX_TEMP_RECORDED
+		summarizeBy: sum
+		sourceColumn: MAX_TEMP_RECORDED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MIN_TEMP_RECORDED
+		dataType: double
+		lineageTag: f81f3338-3837-4fd4-9fea-6392360398fc
+		sourceLineageTag: MIN_TEMP_RECORDED
+		summarizeBy: sum
+		sourceColumn: MIN_TEMP_RECORDED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NUM_FARMS
+		dataType: double
+		lineageTag: 827211bd-42e7-41d3-96e7-e76b8ddf79e5
+		sourceLineageTag: NUM_FARMS
+		summarizeBy: sum
+		sourceColumn: NUM_FARMS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CROPS_GROWN
+		dataType: string
+		lineageTag: 0d11b07a-dec6-4269-9d45-35c954a4390a
+		sourceLineageTag: CROPS_GROWN
+		summarizeBy: none
+		sourceColumn: CROPS_GROWN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_FARM_ACREAGE
+		dataType: double
+		lineageTag: 029e2de8-fc41-4d3a-92ef-d2b2baee066e
+		sourceLineageTag: TOTAL_FARM_ACREAGE
+		summarizeBy: sum
+		sourceColumn: TOTAL_FARM_ACREAGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVG_CROP_HEALTH
+		dataType: double
+		lineageTag: 0e705e7d-524e-42ab-92e7-7e98b086ce2c
+		sourceLineageTag: AVG_CROP_HEALTH
+		summarizeBy: sum
+		sourceColumn: AVG_CROP_HEALTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition STATION_COMPARISON = entity
+		mode: directLake
+		source
+			entityName: STATION_COMPARISON
+			schemaName: dbo
+			expressionSource: 'DirectLake - USWeatherHistory_Snowflake_Lakehouse'
+

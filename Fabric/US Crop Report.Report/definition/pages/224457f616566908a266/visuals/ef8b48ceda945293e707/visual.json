@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "ef8b48ceda945293e707",
+  "position": {
+    "x": 957.09090909090912,
+    "y": 0,
+    "z": 3000,
+    "height": 126.54545454545455,
+    "width": 221.09090909090909,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "advanceCardE03760C5AB684758B56AA29F9E6C257B",
+    "query": {
+      "queryState": {
+        "mainMeasure": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MONTHLY_TRENDS"
+                        }
+                      },
+                      "Property": "TOTAL_PRECIPITATION"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MONTHLY_TRENDS.TOTAL_PRECIPITATION)",
+              "nativeQueryRef": "Sum of TOTAL_PRECIPITATION"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "MONTHLY_TRENDS"
+                      }
+                    },
+                    "Property": "TOTAL_PRECIPITATION"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
